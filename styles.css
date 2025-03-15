@@ -105,6 +105,7 @@ header {
 .button {
     display: flex;
     justify-content: center;
+    gap: 0.5rem;
     align-items: center;
     font-size: 1rem;
     cursor: pointer;
@@ -118,12 +119,17 @@ header {
     color: var(--c1);
     height: 4rem;
     background-color: #eee;
+    transition: background-color 0.6s ease;
+}
+
+.button i {
+    font-size: 1.5rem;
 }
 
 .button:hover {
     background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
     color: white;
-    border: 1px solid rgba(255, 255, 255, 0);
+    border: 1px solid transparent;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -131,14 +137,68 @@ header {
     font-size: 0.875rem;
     font-style: italic;
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.footertext > a {
+.footertext a {
     text-decoration: underline;
     color: inherit;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 360px) {
+    header {
+        font-size: 2.5rem;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    .intro {
+        max-width: 70%;
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+    }
+
+    #profpic > img {
+        width: 11.25rem;
+        height: 11.25rem;
+        margin-bottom: -0.7rem;
+    }
+
+    #profpic::before {
+        width: 11.25rem;
+        height: 11.25rem;
+    }
+
+    .button {
+        font-size: 0.875rem;
+        width: 70%;
+        height: 3.75rem;
+    }
+
+    .wrapper {
+        justify-content: flex-start;
+        padding-top: 10rem;
+        padding-bottom: 2rem;
+        min-height: auto;
+        gap: 0.5rem;
+        height: auto;
+    }
+
+    .footertext {
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
     header {
         font-size: 2.5rem;
     }
@@ -147,8 +207,12 @@ header {
         font-size: 0.875rem;
     }
 
+    body {
+        overflow: auto;
+    }
+
     .intro {
-        max-width: 60%;
+        max-width: 70%;
         font-size: 0.875rem;
     }
 
@@ -164,12 +228,65 @@ header {
 
     .button {
         font-size: 0.875rem;
-        width: 90%;
+        width: 70%;
         height: 3.75rem;
     }
 
     .wrapper {
-        padding: 1rem;
+        justify-content: flex-start;
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+        min-height: auto;
+        gap: 0.5rem;
+        height: auto;
+    }
+
+    .footertext {
+        font-size: 0.75rem;
+        width: 70%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 499px) {
+    header {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    .intro {
+        max-width: 80%;
+        font-size: 0.875rem;
+    }
+
+    #profpic > img {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    #profpic::before {
+        width: 15rem;
+        height: 15rem;
+    }
+
+    .button {
+        font-size: 0.875rem;
+        width: 80%;
+        height: 3.75rem;
+    }
+
+    .wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 12rem;
+        padding-bottom: 1rem;
         gap: 0.5rem;
         height: auto;
     }
@@ -179,7 +296,7 @@ header {
     }
 }
 
-@media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 500px) and (max-width: 768px) {
     header {
         font-size: 3rem;
     }
@@ -188,8 +305,12 @@ header {
         font-size: 0.875rem;
     }
 
+    body {
+        overflow: auto;
+    }
+
     .intro {
-        max-width: 60%;
+        max-width: 80%;
         font-size: 0.875rem;
     }
 
@@ -205,12 +326,15 @@ header {
 
     .button {
         font-size: 0.875rem;
-        width: 90%;
+        width: 80%;
         height: 3.75rem;
     }
 
     .wrapper {
-        padding: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 9rem;
+        padding-bottom: 1rem;
         gap: 0.5rem;
         height: auto;
     }
@@ -223,11 +347,39 @@ header {
 /* Medium Devices (Tablets) */
 @media (min-width: 769px) and (max-width: 1024px) {
     /* Styles for tablets and smaller laptops */
+    header {
+        font-size: 3.5rem;
+    }
+
+    body {
+        overflow: auto;
+    }
+
+    .wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 8rem;
+        padding-bottom: 1rem;
+        gap: 0.5rem;
+        height: auto;
+    }
 }
 
 /* Large Devices (Laptops, Desktops) */
 @media (min-width: 1025px) and (max-width: 1440px) {
     /* Styles for standard desktops & larger laptops */
+    body {
+        overflow: auto;
+    }
+
+    .wrapper {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 8rem;
+        padding-bottom: 1rem;
+        gap: 0.5rem;
+        height: auto;
+    }
 }
 
 /* Extra Large Devices (Big Screens, 4K Monitors) */
