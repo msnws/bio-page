@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Radial Fill on Hover (Mouse Position)</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                background: #1e1e1e;
+            }
+
+            .button {
+                position: relative;
+                padding: 15px 40px;
+                font-size: 18px;
+                font-weight: bold;
+                color: white;
+                background: transparent;
+                border: 2px solid white;
+                cursor: pointer;
+                overflow: hidden;
+                outline: none;
+            }
+
+            .button::before {
+                content: "";
+                position: absolute;
+                width: 300%;
+                height: 300%;
+                background: white;
+                top: var(--y, 50%);
+                left: var(--x, 50%);
+                transform: translate(-50%, -50%) scale(0);
+                border-radius: 50%;
+                transition:
+                    transform 0.4s ease-out,
+                    top 0s,
+                    left 0s;
+            }
+
+            .button:hover::before {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            .button span {
+                position: relative;
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="button"><span>Hover Me</span></button>
+
+        <script>
+            const button = document.querySelector(".button");
+
+            button.addEventListener("mouseenter", (e) => {
+                const rect = button.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                button.style.setProperty("--x", `${x}px`);
+                button.style.setProperty("--y", `${y}px`);
+            });
+        </script>
+    </body>
+</html>

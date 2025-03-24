@@ -1,8 +1,37 @@
 <!doctype html>
 <html lang="en">
     <head>
+        <!-- Standard Tags -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Open Graph Meta Tags -->
+        <meta property="og:title" content="Mason Weis | Links" />
+        <meta
+            property="og:description"
+            content="Check out my projects, social links, and more."
+        />
+        <meta
+            property="og:image"
+            content="https://links.mason-weis.com/images/99.png"
+        />
+        <meta property="og:url" content="https://links.mason-weis.com" />
+        <meta property="og:type" content="website" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Mason Weis | Links" />
+        <meta
+            name="twitter:description"
+            content="Check out my projects, social links, and more."
+        />
+        <meta
+            name="twitter:image"
+            content="https://links.mason-weis.com/images/99.png"
+        />
+        <meta name="twitter:url" content="https://links.mason-weis.com" />
+
+        <!-- Other Stuff -->
         <title>Mason Weis</title>
         <script
             src="https://kit.fontawesome.com/242ae33d0d.js"
@@ -15,12 +44,36 @@
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
             rel="stylesheet"
         />
-        <script src="script.js"></script>
     </head>
 
     <body>
         <div class="wrapper">
-            <header><h1>Mason Weis</h1></header>
+            <header>
+                <h1>Mason Weis</h1>
+                <div class="toggle-bar">
+                    <button
+                        id="dark-toggle"
+                        class="toggler"
+                        title="toggle dark mode"
+                    >
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <button
+                        id="color-change"
+                        class="toggler"
+                        title="change color palette"
+                    >
+                        <i class="fa-solid fa-brush"></i>
+                    </button>
+                    <button
+                        id="shareLink"
+                        class="toggler"
+                        title="share this page"
+                    >
+                        <i class="fa-regular fa-share-from-square"></i>
+                    </button>
+                </div>
+            </header>
             <main>
                 <section>
                     <div id="profpic">
@@ -77,20 +130,21 @@
                     </div>
                 </section>
             </main>
-            <footer>
-                <hr />
-                <div class="footertext">
-                    <p>
-                        ©Mason Weis <span id="year">2021</span>
-
-                        --
-                        <a
-                            href="https://www.svgbackgrounds.com/category/line-art/"
-                            >Line Art Backgrounds by SVGBackgrounds.com</a
-                        >
-                    </p>
-                </div>
-            </footer>
         </div>
+        <footer>
+            <div class="divider">
+                <hr />
+            </div>
+            <div class="footertext">
+                <p>©Mason Weis <span id="year">2021</span></p>
+
+                <p>
+                    <a href="https://www.svgbackgrounds.com/category/line-art/"
+                        >Line Art Backgrounds by SVGBackgrounds.com</a
+                    >
+                </p>
+            </div>
+        </footer>
+        <script src="script.js"></script>
     </body>
 </html>

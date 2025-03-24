@@ -1,3 +1,5 @@
+console.log("✅ script.js has loaded");
+
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
@@ -57,4 +59,29 @@ document.addEventListener("DOMContentLoaded", setOverlayColor);
 
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("year").textContent = new Date().getFullYear();
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("dark-toggle");
+  const html = document.documentElement;
+
+  toggle.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    console.log("🌗 Dark mode toggled:", html.classList.contains("dark"));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const colorChange = document.getElementById("color-change");
+  colorChange.addEventListener("click", () => {
+    setOverlayColor();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const shareLink = document.getElementById("shareLink");
+  shareLink.addEventListener("click", () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url);
+  });
 });
