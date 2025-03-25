@@ -1,20 +1,23 @@
+/*
+==============================
+ROOT & DARK MODE VARIABLES
+==============================
+*/
+
 :root {
-    --base-font-size: 16px;
     font-size: 100%;
 
     --text-color: #333;
     --bg-color: #eee;
-    --c1: #333;
-    --c2: #443ef9;
-    --c3: #f93e41;
-    --c2w: #443ef977;
-    --c3w: #f93e4177;
-    --c4: #eee;
     --overlay-color: rgba(255, 0, 0, 0.5);
     --ovsolid: rgba(255, 0, 0);
     --ovdark: rgba(255, 10, 10);
     --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23e6e6e6' stroke-width='5.1' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
     --pagePadding: 0 10rem;
+    --headHeight: 6rem;
+    --dropShadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    --baseFont: 1rem;
+    --smallFont: 0.875rem;
 }
 
 html.dark {
@@ -23,9 +26,15 @@ html.dark {
     --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23363636' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
 
+/*
+==============================
+GLOBAL STYLES
+==============================
+
+*/
+
 html {
     font-family: "IBM Plex Mono", monospace;
-    /*background: linear-gradient(-45deg, var(--c2w), var(--c3w));*/
     background-color: var(--bg-color);
     background-image: var(--svg);
     -webkit-text-size-adjust: 100%;
@@ -33,12 +42,8 @@ html {
 
 html,
 body {
-    height: 100%;
     margin: 0;
-    /*display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;*/
+    padding: 0;
 }
 
 body {
@@ -48,26 +53,57 @@ body {
 }
 
 p {
-    font-size: 1rem;
+    font-size: var(--baseFont);
     color: var(--text-color);
 }
 
-.intro {
-    line-height: 1.5;
-    text-align: center;
-    width: 37.5rem;
-    max-width: 90%;
-    width: min(35rem, 90%);
-    margin: 0 auto 2rem auto;
+/*
+==============================
+LAYOUT & UTILITIES
+==============================
+*/
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 100%;
+    width: 100%;
+    gap: 1rem;
+    flex: 1;
 }
 
+.fullWidthPad {
+    width: 100%;
+    padding: var(--pagePadding);
+    box-sizing: border-box;
+}
+
+.topBottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*
+==============================
+COMPONENTS
+==============================
+*/
+
+/* HEADER */
+
 header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--headHeight);
+}
+
+.toggle-bar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: var(--pagePadding);
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .toggler {
@@ -80,41 +116,29 @@ header {
     width: 3rem; /* make width and height equal */
     height: 3rem;
     border-radius: 50%; /* perfect circle */
-    /* display: flex;  center the icon inside
-    align-items: center;
-    justify-content: center; */
     transition: background-color 0.3s ease;
 }
 
 .toggler:hover {
     background-color: var(--ovsolid); /* or whatever looks good in your theme */
     color: #eee;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--dropShadow);
 }
 
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    /*align-items: center;*/
-    justify-content: center;
-    max-width: 100%;
-    width: 100%;
-    gap: 1rem;
-    flex: 1;
-    /*height: 100vh;
-    overflow: hidden;*/
+/* MAIN CONTENT */
+
+main {
+    margin-top: var(--headHeight);
 }
 
-/*header {
+.intro {
+    line-height: 1.5;
     text-align: center;
-}*/
-
-h1 {
-    font-size: 3.8rem;
-    font-weight: bold;
-    color: var(--text-color);
-    margin: 0;
+    width: min(35rem, 90%);
+    margin: 0 auto 2rem auto;
 }
+
+/* profpic */
 
 #profpic::before {
     content: "";
@@ -142,8 +166,10 @@ h1 {
     border-radius: 50%;
     width: 15.625rem;
     height: 15.625rem;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--dropShadow);
 }
+
+/* buttons */
 
 #bc {
     display: flex;
@@ -160,7 +186,7 @@ h1 {
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
-    font-size: 1rem;
+    font-size: var(--baseFont);
     cursor: pointer;
     border: 1px solid var(--text-color);
     padding: 0.5rem;
@@ -183,27 +209,41 @@ h1 {
     background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
     color: white;
     border: 1px solid transparent;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--dropShadow);
 }
 
-/* TODO make footer go to the very bottom of the page */
+/* HEADINGS & TEXT */
+
+h1 {
+    font-size: 3.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* FOOTER */
+
+footer {
+    padding-top: 1rem;
+}
+
+.divider {
+    margin-bottom: -0.5rem;
+}
+
+.divider hr {
+    border: 0.5px solid #888;
+}
+
 .footertext {
-    /*font-style: italic;
-    display: flex;
-    align-items: center;
-    width: 45rem;
-    justify-items: space-evenly;*/
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-style: italic;
-    padding: var(--pagePadding);
-    width: 100%;
-    box-sizing: border-box;
 }
 
 .footertext p {
-    font-size: 0.875rem;
+    font-size: var(--smallFont);
     font-weight: 300;
 }
 
@@ -212,39 +252,48 @@ h1 {
     color: inherit;
 }
 
-.divider {
-    margin-bottom: -0.5rem;
-    width: 100%;
-    padding: var(--pagePadding); /* match header's horizontal padding */
-    box-sizing: border-box; /* include padding inside the width */
-}
-
-.divider hr {
-    border: 0.5px solid #888;
-}
-
-footer {
-    padding-top: 1rem;
-}
-
-/* MEDIA QUERIES BEGIN HERE */
+/*
+==============================
+MEDIA QUERIES
+==============================
+*/
 
 @media (max-width: 360px) {
-    header {
-        font-size: 2.5rem;
+    .topBottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
 
+    header {
+        position: static;
+        font-size: 2.5rem;
+        width: 100%;
+    }
+
+    main {
+        margin-top: 3.5rem;
+    }
+
+    .toggle-bar {
+        display: none;
+    }
+
+    h1 {
+        text-align: center;
+    }
     body {
         overflow: auto;
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     .intro {
         max-width: 70%;
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         margin-bottom: 1rem;
     }
 
@@ -260,14 +309,14 @@ footer {
     }
 
     .button {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         width: 70%;
         height: 3.75rem;
     }
 
     .wrapper {
         justify-content: flex-start;
-        padding-top: 10rem;
+        padding-top: 0rem;
         padding-bottom: 2rem;
         min-height: auto;
         gap: 0.5rem;
@@ -277,7 +326,7 @@ footer {
     .footertext {
         width: 70%;
         margin: 0 auto;
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     hr {
@@ -291,7 +340,7 @@ footer {
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     body {
@@ -300,7 +349,7 @@ footer {
 
     .intro {
         max-width: 70%;
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     #profpic > img {
@@ -314,7 +363,7 @@ footer {
     }
 
     .button {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         width: 70%;
         height: 3.75rem;
     }
@@ -328,7 +377,7 @@ footer {
     }
 
     .footertext {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         width: 70%;
         margin: 0 auto;
     }
@@ -344,7 +393,7 @@ footer {
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     body {
@@ -353,7 +402,7 @@ footer {
 
     .intro {
         max-width: 80%;
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     #profpic > img {
@@ -367,7 +416,7 @@ footer {
     }
 
     .button {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         width: 80%;
         height: 3.75rem;
     }
@@ -380,7 +429,7 @@ footer {
     }
 
     .footertext {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     hr {
@@ -394,7 +443,7 @@ footer {
     }
 
     p {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     body {
@@ -403,7 +452,7 @@ footer {
 
     .intro {
         max-width: 80%;
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 
     #profpic > img {
@@ -417,7 +466,7 @@ footer {
     }
 
     .button {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
         width: 80%;
         height: 3.75rem;
     }
@@ -430,7 +479,7 @@ footer {
     }
 
     .footertext {
-        font-size: 0.875rem;
+        font-size: var(--smallFont);
     }
 }
 

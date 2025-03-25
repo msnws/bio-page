@@ -49,29 +49,42 @@
     <body>
         <div class="wrapper">
             <header>
-                <h1>Mason Weis</h1>
-                <div class="toggle-bar">
-                    <button
-                        id="dark-toggle"
-                        class="toggler"
-                        title="toggle dark mode"
-                    >
-                        <i class="fa-regular fa-moon"></i>
-                    </button>
-                    <button
-                        id="color-change"
-                        class="toggler"
-                        title="change color palette"
-                    >
-                        <i class="fa-solid fa-brush"></i>
-                    </button>
-                    <button
-                        id="shareLink"
-                        class="toggler"
-                        title="share this page"
-                    >
-                        <i class="fa-regular fa-share-from-square"></i>
-                    </button>
+                <div class="fullWidthPad topBottom">
+                    <h1>Mason Weis</h1>
+                    <div class="hamburger">
+                        <!-- TODO get hamburger menu working -->
+                        --
+                        <button
+                            id="hamburger-toggle"
+                            class="toggler"
+                            title="toggle hamburger menu"
+                        >
+                            <i class="fa-solid fa-bars"></i>
+                        </button>
+                    </div>
+                    <div class="toggle-bar">
+                        <button
+                            id="dark-toggle"
+                            class="toggler"
+                            title="toggle dark mode"
+                        >
+                            <i class="fa-regular fa-moon"></i>
+                        </button>
+                        <button
+                            id="color-change"
+                            class="toggler"
+                            title="change color palette"
+                        >
+                            <i class="fa-solid fa-brush"></i>
+                        </button>
+                        <button
+                            id="shareLink"
+                            class="toggler"
+                            title="share this page"
+                        >
+                            <i class="fa-regular fa-share-from-square"></i>
+                        </button>
+                    </div>
                 </div>
             </header>
             <main>
@@ -132,10 +145,10 @@
             </main>
         </div>
         <footer>
-            <div class="divider">
+            <div class="divider fullWidthPad">
                 <hr />
             </div>
-            <div class="footertext">
+            <div class="footertext fullWidthPad topBottom">
                 <p>©Mason Weis <span id="year">2021</span></p>
 
                 <p>
