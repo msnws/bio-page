@@ -53,10 +53,9 @@
                     <h1>Mason Weis</h1>
                     <div class="hamburger">
                         <!-- TODO get hamburger menu working -->
-                        --
                         <button
                             id="hamburger-toggle"
-                            class="toggler"
+                            class="hamburger buttonStyler"
                             title="toggle hamburger menu"
                         >
                             <i class="fa-solid fa-bars"></i>
@@ -106,21 +105,21 @@
                         <a
                             href="https://github.com/msnws"
                             target="_blank"
-                            class="button"
+                            class="button buttonStyler"
                         >
                             <i class="fa-brands fa-github"></i> Github
                         </a>
                         <a
                             href="https://www.linkedin.com/in/mason-weis/"
                             target="_blank"
-                            class="button"
+                            class="button buttonStyler"
                         >
                             <i class="fa-brands fa-linkedin"></i> LinkedIn
                         </a>
                         <a
                             href="https://mason-weis.com"
                             target="_blank"
-                            class="button"
+                            class="button buttonStyler"
                         >
                             <i class="fa-solid fa-link"></i> Graphic Design
                             Portfolio
@@ -158,6 +157,29 @@
                 </p>
             </div>
         </footer>
+        <div class="mobileOverlay">
+            <button
+                id="dark-toggleMobile"
+                class="mobileToggler"
+                title="toggle dark mode"
+            >
+                <i class="fa-regular fa-moon"></i> Toggle Dark Mode
+            </button>
+            <button
+                id="color-changeMobile"
+                class="mobileToggler"
+                title="change color palette"
+            >
+                <i class="fa-solid fa-brush"></i> Change Color Palette
+            </button>
+            <button
+                id="shareLinkMobile"
+                class="mobileToggler"
+                title="share this page"
+            >
+                <i class="fa-regular fa-share-from-square"></i> Share This Page
+            </button>
+        </div>
         <script src="script.js"></script>
     </body>
 </html>

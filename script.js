@@ -85,3 +85,41 @@ document.addEventListener("DOMContentLoaded", () => {
     navigator.clipboard.writeText(url);
   });
 });
+
+const menuBtn = document.querySelector("#hamburger-toggle");
+const overlay = document.querySelector(".mobileOverlay");
+
+menuBtn.addEventListener("click", () => {
+  overlay.classList.toggle("active");
+
+  if (overlay.classList.contains("active")) {
+    menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+  } else {
+    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  }
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("dark-toggleMobile");
+  const html = document.documentElement;
+
+  toggle.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    console.log("🌗 Dark mode toggled:", html.classList.contains("dark"));
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const colorChange = document.getElementById("color-changeMobile");
+  colorChange.addEventListener("click", () => {
+    setOverlayColor();
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const shareLink = document.getElementById("shareLinkMobile");
+  shareLink.addEventListener("click", () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url);
+  });
+});

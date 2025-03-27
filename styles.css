@@ -9,6 +9,7 @@ ROOT & DARK MODE VARIABLES
 
     --text-color: #333;
     --bg-color: #eee;
+    --bg-color-overlay: #eeeeeee0;
     --overlay-color: rgba(255, 0, 0, 0.5);
     --ovsolid: rgba(255, 0, 0);
     --ovdark: rgba(255, 10, 10);
@@ -23,6 +24,7 @@ ROOT & DARK MODE VARIABLES
 html.dark {
     --text-color: #eee;
     --bg-color: #333;
+    --bg-color-overlay: #333333f2;
     --svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='30' viewBox='0 0 1000 120'%3E%3Cg fill='none' stroke='%23363636' stroke-width='10' %3E%3Cpath d='M-500 75c0 0 125-30 250-30S0 75 0 75s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 45c0 0 125-30 250-30S0 45 0 45s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 105c0 0 125-30 250-30S0 105 0 105s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 15c0 0 125-30 250-30S0 15 0 15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500-15c0 0 125-30 250-30S0-15 0-15s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3Cpath d='M-500 135c0 0 125-30 250-30S0 135 0 135s125 30 250 30s250-30 250-30s125-30 250-30s250 30 250 30s125 30 250 30s250-30 250-30'/%3E%3C/g%3E%3C/svg%3E");
 }
 
@@ -73,6 +75,13 @@ LAYOUT & UTILITIES
     flex: 1;
 }
 
+.wrapper .active {
+    background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
+    color: orange;
+    border: 1px solid transparent;
+    box-shadow: var(--dropShadow);
+}
+
 .fullWidthPad {
     width: 100%;
     padding: var(--pagePadding);
@@ -83,6 +92,59 @@ LAYOUT & UTILITIES
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.buttonStyler {
+    font-size: var(--baseFont);
+    cursor: pointer;
+    border: 1px solid var(--text-color);
+    padding: 0.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    color: var(--text-color);
+}
+
+.buttonStyler i {
+    font-size: 1.5rem;
+}
+
+.buttonStyler:hover {
+    background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
+    color: white;
+    border: 1px solid transparent;
+    box-shadow: var(--dropShadow);
+}
+
+.mobileOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color-overlay);
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.4s ease,
+        visibility 0s linear 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    backdrop-filter: blur(6px); /* the magic! */
+    -webkit-backdrop-filter: blur(6px); /* Safari/iOS prefix */
+}
+
+.mobileOverlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+        opacity 0.4s ease,
+        visibility 0s linear 0s;
 }
 
 /*
@@ -122,6 +184,36 @@ header {
 .toggler:hover {
     background-color: var(--ovsolid); /* or whatever looks good in your theme */
     color: #eee;
+    box-shadow: var(--dropShadow);
+}
+
+.hamburger {
+    display: none;
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--bg-color);
+    transition: background-color 0.6s ease;
+    z-index: 999;
+}
+
+.mobileToggler {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1.3rem;
+
+    /*border-bottom: 1px solid var(--text-color);*/
+    background-color: transparent;
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    padding: 1.5rem;
+    width: 80%;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.mobileToggler:hover {
+    background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
+    color: white;
     box-shadow: var(--dropShadow);
 }
 
@@ -186,30 +278,10 @@ main {
     justify-content: center;
     gap: 0.5rem;
     align-items: center;
-    font-size: var(--baseFont);
-    cursor: pointer;
-    border: 1px solid var(--text-color);
-    padding: 0.5rem;
     width: 35rem;
-    text-decoration: none;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--text-color);
     height: 4rem;
     background-color: var(--bg-color);
     transition: background-color 0.6s ease;
-}
-
-.button i {
-    font-size: 1.5rem;
-}
-
-.button:hover {
-    background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
-    color: white;
-    border: 1px solid transparent;
-    box-shadow: var(--dropShadow);
 }
 
 /* HEADINGS & TEXT */
@@ -259,29 +331,46 @@ MEDIA QUERIES
 */
 
 @media (max-width: 360px) {
-    .topBottom {
+    /*.topBottom {
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
+        flex-direction: row;
+        width: 100%;
+    }*/
+
+    .toggleActive {
+        display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .topBottom {
+        padding: 0.5rem 1.5rem;
     }
 
     header {
         position: static;
-        font-size: 2.5rem;
         width: 100%;
     }
 
     main {
-        margin-top: 3.5rem;
+        margin-top: 2.3rem;
     }
 
     .toggle-bar {
         display: none;
     }
 
+    .hamburger {
+        display: block;
+    }
+
     h1 {
-        text-align: center;
+        font-size: 2.8rem;
+        /*width: 20%;*/
     }
     body {
         overflow: auto;
@@ -314,6 +403,11 @@ MEDIA QUERIES
         height: 3.75rem;
     }
 
+    .divider hr {
+        border: 0.5px solid #888;
+        width: 70%;
+    }
+
     .wrapper {
         justify-content: flex-start;
         padding-top: 0rem;
@@ -327,10 +421,6 @@ MEDIA QUERIES
         width: 70%;
         margin: 0 auto;
         font-size: var(--smallFont);
-    }
-
-    hr {
-        width: 70%;
     }
 }
 
