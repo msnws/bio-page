@@ -80,9 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const shareLink = document.getElementById("shareLink");
+  const linkCopyPopup = document.querySelector(".linkCopy");
   shareLink.addEventListener("click", () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url);
+    linkCopyPopup.classList.add("show");
+    setTimeout(() => {
+      linkCopyPopup.classList.remove("show");
+    }, 2000);
   });
 });
 
@@ -118,8 +123,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const shareLink = document.getElementById("shareLinkMobile");
+  const linkCopyPopup = document.querySelector(".linkCopy");
   shareLink.addEventListener("click", () => {
     const url = window.location.href;
     navigator.clipboard.writeText(url);
+    linkCopyPopup.classList.add("show");
+    setTimeout(() => {
+      linkCopyPopup.classList.remove("show");
+    }, 2000);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const darkToggle = document.getElementById("dark-toggle");
+  darkToggle.addEventListener("mouseenter", () => {
+    darkToggle.classList.add("expanded");
+  });
+  darkToggle.addEventListener("mouseleave", () => {
+    darkToggle.classList.remove("expanded");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const colorChange = document.getElementById("color-change");
+  colorChange.addEventListener("mouseenter", () => {
+    colorChange.classList.add("expanded");
+  });
+  colorChange.addEventListener("mouseleave", () => {
+    colorChange.classList.remove("expanded");
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const shareLink = document.getElementById("shareLink");
+  const linkCopyPopup = document.querySelector(".linkCopy");
+  shareLink.addEventListener("mouseenter", () => {
+    shareLink.classList.add("expanded");
+  });
+  shareLink.addEventListener("mouseleave", () => {
+    shareLink.classList.remove("expanded");
   });
 });

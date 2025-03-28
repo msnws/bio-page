@@ -67,26 +67,32 @@
                             class="toggler"
                             title="toggle dark mode"
                         >
-                            <i class="fa-regular fa-moon"></i>
+                            <i class="fa-regular fa-moon"></i
+                            ><span class="label">Dark Mode</span>
                         </button>
                         <button
                             id="color-change"
                             class="toggler"
                             title="change color palette"
                         >
-                            <i class="fa-solid fa-brush"></i>
+                            <i class="fa-solid fa-brush"></i
+                            ><span class="label hidden">Color Palette</span>
                         </button>
                         <button
                             id="shareLink"
                             class="toggler"
                             title="share this page"
                         >
-                            <i class="fa-regular fa-share-from-square"></i>
+                            <i class="fa-regular fa-share-from-square"></i
+                            ><span class="label hidden"> Share Link</span>
                         </button>
                     </div>
                 </div>
             </header>
             <main>
+                <div class="linkCopy">
+                    <p>Copied link to clipboard.</p>
+                </div>
                 <section>
                     <div id="profpic">
                         <img src="/images/99.png" alt="Mason Weis" />
@@ -180,6 +186,7 @@
                 <i class="fa-regular fa-share-from-square"></i> Share This Page
             </button>
         </div>
+
         <script src="script.js"></script>
     </body>
 </html>

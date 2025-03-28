@@ -168,23 +168,99 @@ header {
     align-items: center;
 }
 
-.toggler {
+/*.toggler {
     color: var(--text-color);
     border: none;
     background-color: transparent;
     font-size: 1.3rem;
     cursor: pointer;
 
-    width: 3rem; /* make width and height equal */
+    width: 3rem;
     height: 3rem;
-    border-radius: 50%; /* perfect circle */
+    border-radius: 50%;
     transition: background-color 0.3s ease;
 }
 
 .toggler:hover {
-    background-color: var(--ovsolid); /* or whatever looks good in your theme */
+    background-color: var(--ovsolid);
     color: #eee;
     box-shadow: var(--dropShadow);
+}*/
+
+.toggler {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* overflow: hidden;*/
+    min-width: 3rem;
+}
+
+.toggler .label {
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translate(0, -50%);
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    transition:
+        opacity 0.2s ease 0.15s,
+        transform 0.3s ease;
+}
+
+.toggler.expanded {
+    width: 12rem;
+    border-radius: 2rem;
+    background-color: var(--ovsolid);
+    color: #eee;
+    box-shadow: var(--dropShadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 0.5rem;
+}
+
+.toggler.expanded .label {
+    position: relative;
+    left: auto;
+    top: auto;
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    margin-left: 0.5rem;
+}
+
+.toggler i {
+    font-size: 1.3rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.toggler.expanded i {
+    color: #eee;
+}
+
+.label {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 1rem;
+    color: #eee;
+    margin-left: 0.5rem;
+
+    opacity: 0;
+    visibility: hidden;
+    white-space: nowrap;
+    margin-left: 0.5rem;
+    transition:
+        opacity 0.2s ease 0.15s,
+        visibility 0.2s ease 0.15s;
 }
 
 .hamburger {
@@ -215,6 +291,37 @@ header {
     background: linear-gradient(45deg, var(--ovsolid) 50%, var(--ovdark));
     color: white;
     box-shadow: var(--dropShadow);
+}
+
+.linkCopy {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    /* Positioning */
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-1rem);
+    z-index: 9999;
+    background-color: var(--ovsolid);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.linkCopy.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.linkCopy p {
+    color: #eee;
+    margin: 0;
 }
 
 /* MAIN CONTENT */
