@@ -1,0 +1,50 @@
+@media (min-width: 300px) {
+    .wrapper {
+        align-items: center;
+        padding: 1.2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .toggler {
+        display: none;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+    }
+
+    #profpic {
+        display: flex;
+        justify-content: center;
+    }
+
+    #profpic img {
+        width: 75%;
+    }
+
+    p {
+        font-size: 0.85rem;
+        text-align: center;
+    }
+
+    #bc {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .button,
+    .secondaryButton {
+        font-size: 0.85rem;
+    }
+}

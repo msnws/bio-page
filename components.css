@@ -1,0 +1,66 @@
+.buttonMaster {
+    cursor: pointer;
+    padding: 1rem;
+    border-radius: 0.45rem;
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+}
+
+.button {
+    background-color: var(--brand);
+    border: 1px solid transparent;
+    color: #fff;
+    font-weight: 500;
+}
+
+.button:hover {
+    background-color: var(--brand-hl2);
+}
+
+.clicked {
+    transform: scale(0.95);
+    transition: transform 0.04s ease-in;
+}
+
+.rebound {
+    transform: scale(1.01);
+    transition: transform 0.08s cubic-bezier(0.3, 1.5, 0.7, 1);
+}
+
+.relax {
+    transform: scale(1);
+    transition: transform 0.5s cubic-bezier(0.4, 0.8, 0.6, 1);
+}
+
+.secondaryButton {
+    position: relative;
+    transition: transform 0.1s ease-in-out;
+    z-index: 0;
+    overflow: hidden;
+    color: var(--secondary);
+    border: 1px var(--brand) solid;
+    transition: background-color 0.2s ease;
+    background-color: var(--brand-highlight);
+    font-weight: 400;
+}
+
+.secondaryButton::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--brand-hl4);
+    transition: width 0.25s ease;
+    z-index: -1;
+}
+
+.secondaryButton:hover::after {
+    width: 100%;
+    z-index: -1;
+}

@@ -1,0 +1,61 @@
+:root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --brand: #3662e3;
+    --secondary: #213ca0;
+    --text: #0f1214;
+    --text-muted: #5a5a5a;
+    --text-transparent: #1e1e1eee;
+    --brand-highlight: #3662e322;
+    --brand-hl2: #3662e3ee;
+    --brand-hl3: #3662e377;
+    --brand-hl4: #3662e344;
+    --disabled: #00000011;
+    --disabled-dark: #00000033;
+    --divider: #e0e0e0;
+    --button-border: #ccc;
+    --faint-border: #dedede;
+}
+
+html.dark {
+    --bg: /*#0f1214 #15181b*/ #1e2124;
+    --surface: #282b2f;
+    --brand: #3662e3;
+    --secondary: #accefb;
+    --text: #eaeaea;
+    --text-muted: #b0b0b0;
+    --text-muted-dark: #888;
+    --text-transparent: #eaeaeaee;
+    --disabled: #ffffff11;
+    --disabled-dark: #ffffff33;
+    --divider: #222222;
+    --button-border: #444444;
+    --faint-border: #323232;
+    --hero-gradient: linear-gradient(
+        315deg,
+        #3662e377,
+        #1e2124 80%,
+        #1e2124 100%
+    );
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--bg);
+}
+
+.wrapper {
+}
+
+h1 {
+    color: var(--text);
+}
+
+p {
+    color: var(--text-muted);
+}
+
+.linkCopy,
+.mobileOverlay {
+    display: none;
+}
