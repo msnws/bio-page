@@ -15,6 +15,8 @@
     --divider: #e0e0e0;
     --button-border: #ccc;
     --faint-border: #dedede;
+    --hero-gradient: linear-gradient(200deg, #3662e377, #f8f7f4 30%);
+    --dropShadow: 0 3px 6px rgba(0, 0, 0, 0.08);
 }
 
 html.dark {
@@ -44,7 +46,7 @@ html {
     background-color: var(--bg);
 }
 
-.wrapper {
+body {
 }
 
 h1 {
@@ -58,4 +60,30 @@ p {
 .linkCopy,
 .mobileOverlay {
     display: none;
+}
+
+.wrapper {
+    background: var(--hero-gradient);
+}
+
+#profpic {
+    position: relative;
+}
+
+#profpic::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--brand);
+    opacity: 0.3;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.content {
+    background: var(--surface);
+
+    box-shadow: var(--dropShadow);
 }

@@ -24,3 +24,7 @@ buttonPrimary.forEach((button) => {
     button.classList.remove("clicked", "rebound", "relax");
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.getElementById("year").textContent = new Date().getFullYear();
+});

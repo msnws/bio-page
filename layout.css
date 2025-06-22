@@ -1,8 +1,31 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    position: relative;
+}
+
 .wrapper {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
 }
 
 #profpic img {
     border-radius: 50%;
+}
+
+.content {
+    flex: 1;
+}
+
+header {
+    min-height: 2rem;
+    flex: 1;
+    margin-top: -1rem;
+}
+
+footer {
+    min-height: 2rem;
 }
