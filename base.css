@@ -33,12 +33,7 @@ html.dark {
     --divider: #222222;
     --button-border: #444444;
     --faint-border: #323232;
-    --hero-gradient: linear-gradient(
-        315deg,
-        #3662e377,
-        #1e2124 80%,
-        #1e2124 100%
-    );
+    --hero-gradient: linear-gradient(200deg, #3662e377, #1e2124 30%);
 }
 
 html {
@@ -55,11 +50,6 @@ h1 {
 
 p {
     color: var(--text-muted);
-}
-
-.linkCopy,
-.mobileOverlay {
-    display: none;
 }
 
 .wrapper {
@@ -86,4 +76,49 @@ p {
     background: var(--surface);
 
     box-shadow: var(--dropShadow);
+}
+
+p.intro {
+    font-weight: 300;
+}
+
+footer hr {
+    border: 1px solid var(--faint-border);
+}
+
+.linkCopy,
+.themeToggled {
+    opacity: 0;
+    transform: translateY(-1rem);
+    pointer-events: none;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-1rem);
+    z-index: 9999;
+    background-color: var(--brand);
+    color: white;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.linkCopy.show,
+.themeToggled.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.linkCopy p,
+.themeToggled p {
+    color: #eee;
+    margin: 0;
+}
+
+.mobileOverlay {
+    display: none;
 }

@@ -70,3 +70,38 @@
     font-size: 1.5rem;
     border: none;
 }
+
+.toggler {
+    position: relative;
+    font-size: 1.6rem;
+    background-color: transparent;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+    padding: 0.85rem;
+    transition: color 0.15s ease;
+    width: 4rem;
+}
+
+.toggler::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2.5px;
+    width: 0%;
+    background-color: var(--brand);
+    transition: width 0.15s ease;
+}
+
+.toggler:hover::after {
+    width: 100%;
+}
+
+.toggler:hover {
+    color: var(--brand);
+}
+
+.fa-share-from-square {
+    transform: translateX(0.2rem);
+}

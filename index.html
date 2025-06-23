@@ -49,33 +49,40 @@
               id="dark-toggle"
               class="toggler"
               title="toggle dark mode"
+              aria-label="Toggle Dark Mode"
             >
-              <i class="fa-regular fa-moon"></i><span class="label">Dark Mode</span>
+              <i class="fa-regular fa-moon"></i><!--<span class="label">Dark Mode</span>-->
             </button>
-            <button
+            <!-- <button
               id="color-change"
               class="toggler"
               title="change color palette"
             >
               <i class="fa-solid fa-brush"></i><span class="label hidden">Color Palette</span>
-            </button>
+            </button> -->
             <button
               id="shareLink"
               class="toggler"
               title="share this page"
+              aria-label="Share This Page"
             >
-              <i class="fa-regular fa-share-from-square"></i><span class="label hidden">
+              <i class="fa-regular fa-share-from-square"></i><!--<span class="label hidden">
                 Share Link
-              </span>
+              </span>-->
             </button>
           </div>
         </div>
       </header>
       <main class="content">
+        <div class="themeToggled">
+          <p>Switched theme to
+            <span class="themeName"></span>
+            mode.</p>
+        </div>
         <div class="linkCopy">
           <p>Copied link to clipboard.</p>
         </div>
-        <section>
+        <section id="mainContent">
           <div id="profpic">
             <img src="/images/99.png" alt="Mason Weis">
           </div>
@@ -88,7 +95,7 @@
                         page was coded by hand with love.
           </p>
         </section>
-        <section>
+        <section id="links">
           <div id="bc">
             <a
               href="https://www.mason-weis.dev"
