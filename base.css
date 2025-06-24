@@ -16,7 +16,7 @@
     --button-border: #ccc;
     --faint-border: #dedede;
     --hero-gradient: linear-gradient(200deg, #3662e377, #f8f7f4 30%);
-    --dropShadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    --dropShadow: 8px 10px 12px rgba(0, 0, 0, 0.08);
 }
 
 html.dark {
@@ -117,8 +117,4 @@ footer hr {
 .themeToggled p {
     color: #eee;
     margin: 0;
-}
-
-.mobileOverlay {
-    display: none;
 }

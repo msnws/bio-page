@@ -1,4 +1,9 @@
 const html = document.querySelector("html");
+const mobileThemeName = document.querySelector(".mobileThemeName");
+const themeName = document.querySelector(".themeName");
+const hamburger = document.getElementById("hamburger-toggle");
+const overlay = document.querySelector(".mobileOverlay");
+const menuIcon = document.querySelector(".menuIcon");
 
 // Dark Mode Init
 document.addEventListener("DOMContentLoaded", () => {
@@ -17,6 +22,56 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+
+// Hamburger Menu Toggle
+const hamburgerToggle = () => {
+  if (overlay.classList.contains("active")) {
+    overlay.classList.remove("active");
+    menuIcon.classList.remove("fa-times");
+    menuIcon.classList.add("fa-bars");
+  } else {
+    overlay.classList.add("active");
+    menuIcon.classList.remove("fa-bars");
+    menuIcon.classList.add("fa-times");
+  }
+};
+
+// Theme Function
+
+const toggleTheme = () => {
+  const toggleMessage = document.querySelector(".themeToggled");
+  if (html.classList.contains("dark")) {
+    html.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    themeName.innerText = "light";
+    mobileThemeName.innerText = "Light";
+    toggleMessage.classList.add("show");
+    console.log(toggleMessage.classList);
+    setTimeout(() => {
+      toggleMessage.classList.remove("show");
+    }, 1500);
+  } else {
+    html.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    themeName.innerText = "dark";
+    mobileThemeName.innerText = "Dark";
+    toggleMessage.classList.add("show");
+    setTimeout(() => {
+      toggleMessage.classList.remove("show");
+    }, 1500);
+  }
+};
+
+// Share Link Function
+const sharing = () => {
+  const linkPopup = document.querySelector(".linkCopy");
+  const url = window.location.href;
+  navigator.clipboard.writeText(url);
+  linkPopup.classList.add("show");
+  setTimeout(() => {
+    linkPopup.classList.remove("show");
+  }, 1500);
+};
 
 // Primary Button Animation
 
@@ -51,41 +106,34 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("year").textContent = new Date().getFullYear();
 });
 
-// Dark Mode Toggle
+// Dark Mode Button Toggle
 
 const darkModeToggle = document.getElementById("dark-toggle");
 darkModeToggle.addEventListener("click", () => {
-  const toggleMessage = document.querySelector(".themeToggled");
-  const themeName = document.querySelector(".themeName");
-
-  if (html.classList.contains("dark")) {
-    html.classList.remove("dark");
-    localStorage.setItem("theme", "light");
-    themeName.innerText = "light";
-    toggleMessage.classList.add("show");
-    console.log(toggleMessage.classList);
-    setTimeout(() => {
-      toggleMessage.classList.remove("show");
-    }, 1500);
-  } else {
-    html.classList.add("dark");
-    localStorage.setItem("theme", "dark");
-    themeName.innerText = "dark";
-    toggleMessage.classList.add("show");
-    setTimeout(() => {
-      toggleMessage.classList.remove("show");
-    }, 1500);
-  }
+  toggleTheme();
 });
 
-// Link Copy
+// Sharing Button
 const shareLink = document.getElementById("shareLink");
 shareLink.addEventListener("click", () => {
-  const linkPopup = document.querySelector(".linkCopy");
-  const url = window.location.href;
-  navigator.clipboard.writeText(url);
-  linkPopup.classList.add("show");
-  setTimeout(() => {
-    linkPopup.classList.remove("show");
-  }, 1500);
+  sharing();
+});
+
+// Mobile Overlay
+hamburger.addEventListener("click", () => {
+  hamburgerToggle();
+});
+
+// Mobile Overlay Dark Mode
+const mobileToggler = document.getElementById("dark-toggleMobile");
+mobileToggler.addEventListener("click", () => {
+  toggleTheme();
+  hamburgerToggle();
+});
+
+// Mobile Overlay Sharing Button
+const mobileShareLink = document.getElementById("shareLinkMobile");
+mobileShareLink.addEventListener("click", () => {
+  sharing();
+  hamburgerToggle();
 });
