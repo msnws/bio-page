@@ -42,6 +42,13 @@
         margin-left: -0.7rem;
     }
 
+    #mainContent {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.85rem;
+    }
+
     .hamburger {
         margin-left: auto;
         margin-right: -0.7rem;
@@ -56,20 +63,22 @@
         justify-content: center;
     }
 
-    #profpic img {
-        width: 16rem;
-    }
-
-    #profpic::before {
-        width: 16rem;
-        height: 16rem;
+    #profpic img,
+    #profpic::before,
+    #profpic::after {
+        width: 18rem;
+        height: 18rem;
     }
 
     p {
         font-size: 0.9rem;
+    }
+
+    p.intro {
+        width: 80%;
+        line-height: 1.5;
         text-align: center;
         text-wrap: balance;
-        line-height: 1.5;
     }
 
     #bc {
@@ -83,7 +92,7 @@
     .button,
     .secondaryButton {
         font-size: 0.85rem;
-        width: 100%;
+        width: 80%;
     }
 
     footer {
@@ -157,11 +166,9 @@
         justify-content: center;
     }
 
-    #profpic img {
-        width: 18rem;
-    }
-
-    #profpic::before {
+    #profpic img,
+    #profpic::before,
+    #profpic::after {
         width: 18rem;
         height: 18rem;
     }
@@ -275,13 +282,11 @@
         justify-content: center;
     }
 
-    #profpic img {
-        width: 22rem;
-    }
-
-    #profpic::before {
-        width: 22rem;
-        height: 22rem;
+    #profpic img,
+    #profpic::before,
+    #profpic::after {
+        width: 18rem;
+        height: 18rem;
     }
 
     p {

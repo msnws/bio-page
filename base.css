@@ -60,6 +60,10 @@ p {
     position: relative;
 }
 
+#profpic img {
+    z-index: 4;
+}
+
 #profpic::before {
     content: "";
     position: absolute;
@@ -70,6 +74,20 @@ p {
     opacity: 0.3;
     pointer-events: none;
     border-radius: 50%;
+    z-index: 5;
+}
+
+#profpic::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) scale(1.016);
+    background: linear-gradient(var(--brand), var(--secondary));
+    pointer-events: none;
+    border-radius: 50%;
+    z-index: 3;
+    transform-origin: center;
 }
 
 .content {
@@ -78,9 +96,9 @@ p {
     box-shadow: var(--dropShadow);
 }
 
-p.intro {
+/* p.intro {
     font-weight: 300;
-}
+} */
 
 footer hr {
     border: 1px solid var(--faint-border);

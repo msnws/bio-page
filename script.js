@@ -4,6 +4,7 @@ const themeName = document.querySelector(".themeName");
 const hamburger = document.getElementById("hamburger-toggle");
 const overlay = document.querySelector(".mobileOverlay");
 const menuIcon = document.querySelector(".menuIcon");
+const themeIcon = document.querySelector(".themeIcon");
 
 // Dark Mode Init
 document.addEventListener("DOMContentLoaded", () => {
@@ -12,13 +13,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (userTheme === "dark") {
     html.classList.add("dark");
+    mobileThemeName.innerText = "Light";
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
   } else if (userTheme === "light") {
     html.classList.remove("dark");
+    mobileThemeName.innerText = "Dark";
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
   } else {
     if (prefersDark.matches) {
       html.classList.add("dark");
+      mobileThemeName.innerText = "Light";
+      themeIcon.classList.remove("fa-moon");
+      themeIcon.classList.add("fa-sun");
     } else {
       html.classList.remove("dark");
+      mobileThemeName.innerText = "Dark";
+      themeIcon.classList.add("fa-sun");
+      themeIcon.classList.remove("fa-moon");
     }
   }
 });
@@ -44,7 +57,9 @@ const toggleTheme = () => {
     html.classList.remove("dark");
     localStorage.setItem("theme", "light");
     themeName.innerText = "light";
-    mobileThemeName.innerText = "Light";
+    mobileThemeName.innerText = "Dark";
+    themeIcon.classList.remove("fa-sun");
+    themeIcon.classList.add("fa-moon");
     toggleMessage.classList.add("show");
     console.log(toggleMessage.classList);
     setTimeout(() => {
@@ -54,7 +69,9 @@ const toggleTheme = () => {
     html.classList.add("dark");
     localStorage.setItem("theme", "dark");
     themeName.innerText = "dark";
-    mobileThemeName.innerText = "Dark";
+    mobileThemeName.innerText = "Light";
+    themeIcon.classList.remove("fa-moon");
+    themeIcon.classList.add("fa-sun");
     toggleMessage.classList.add("show");
     setTimeout(() => {
       toggleMessage.classList.remove("show");
